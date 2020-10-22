@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "permearly is a simple template expander"
 authors = ["James Vandenberg <basalisk@gmail.com>"]
 
+[tool.poetry.scripts]
+permearly = "permearly.cli:main"
+
 [tool.poetry.dependencies]
 python = "^3.7"
 click = "^7.1.2"
