@@ -8,10 +8,11 @@ def tests(session):
     session.run("pytest", *args)
 
 
-lintables = ["noxfile.py",
-             "permearly/cli.py",
-             "permearly/__init__.py",
-             ]
+lintables = [
+    "noxfile.py",
+    "permearly/cli.py",
+    "permearly/__init__.py",
+]
 
 
 @nox.session(python=["3.8", "3.7"])
@@ -19,3 +20,10 @@ def lint(session):
     args = session.posargs or lintables
     session.install("flake8")
     session.run("flake8", *args)
+
+
+@nox.session(python=["3.8", "3.7"])
+def black(session):
+    args = session.posargs or lintables
+    session.install("black")
+    session.run("black", *args)
